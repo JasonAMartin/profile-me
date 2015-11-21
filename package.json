@@ -1,0 +1,24 @@
+{
+  "name": "profile-me",
+  "version": "0.1.0",
+  "description": "Site profiling library",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/JasonAMartin/profile-me.git"
+},
+  "keywords": [
+    "site",
+    "profile",
+    "scraping"
+  ],
+  "author": "Jason A. Martin <jam@devnoodle.com> (http://www.devnoodle.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JasonAMartin/profile-me/issues"
+  },
+  "homepage": "https://github.com/JasonAMartin/profile-me#readme",
+}
