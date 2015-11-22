@@ -1,0 +1,7 @@
+{
+  "sitemap": "https://www.vegas.com/sitemap_https.xml",
+  "workingDirectory": "../working/",
+  "sitemapName": "mySitemap2.xml",
+  "screenshotDirectory": "../working/screens/",
+  "imagesDirectory": "../working/images/"
+}
