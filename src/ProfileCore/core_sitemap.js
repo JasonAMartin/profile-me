@@ -1,5 +1,5 @@
-var fs = require('fs');
-var Download = require('download');
+import fs from 'fs';
+import Download from 'download';
 
 module.exports = {
 
@@ -14,7 +14,7 @@ module.exports = {
 
   saveSiteMap: function _saveSiteMap(site, destination, fileName) {
     return new Promise(function _saveSitemapPromise(resolve) {
-      var download = new Download();
+      const download = new Download();
       download.get(site);
       download.dest(destination);
       download.rename(fileName);
@@ -33,7 +33,7 @@ module.exports = {
 
   getSitemap: function _getSiteMap(site) {
     return new Promise(function _getSitemapPromise(resolve) {
-      var download = new Download();
+      const download = new Download();
       download.get(site);
       download.run(function _runDL(err, data) {
         resolve(data);
@@ -51,11 +51,11 @@ module.exports = {
   getWiredURLs: function _getWiredURLs(sitemap) {
     return new Promise(function _getWiredURLsPromise(resolve) {
       fs.readFile(sitemap, 'utf8', function _readFile(err, data) {
-        var index = 0;
-        var finalURLSet = [];
-        var reg = /<loc>[\s\S]*?<\/loc>/g;
-        var allURLs = data.match(reg);
-        var len = allURLs.length;
+        let index = 0;
+        const finalURLSet = [];
+        const reg = /<loc>[\s\S]*?<\/loc>/g;
+        const allURLs = data.match(reg);
+        const len = allURLs.length;
         for (index = 0; index < len; index++) {
           finalURLSet.push(allURLs[index].replace('<loc>', ''). replace('</loc>', ''));
         }
@@ -76,14 +76,14 @@ module.exports = {
   getAltURLs: function _getAltURLs(sitemap) {
     return new Promise(function _getAltURLsPromise(resolve) {
       fs.readFile(sitemap, 'utf8', function _readFile(err, data) {
-        var index = 0;
-        var urlReg;
-        var hrefSets;
-        var reg = /<url>[\s\S]*?<\/url>/g;
-        var urlSets = data.match(reg);
-        var len = urlSets.length;
-        var currentItem;
-        var altURLs = [];
+        let index = 0;
+        let urlReg;
+        let hrefSets;
+        const reg = /<url>[\s\S]*?<\/url>/g;
+        const urlSets = data.match(reg);
+        const len = urlSets.length;
+        let currentItem;
+        const altURLs = [];
         for (index = 0; index < len; index++) {
           currentItem = urlSets[index];
           urlReg = /(href=\")([^\"]*)(\")/g;

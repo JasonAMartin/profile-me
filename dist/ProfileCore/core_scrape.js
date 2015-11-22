@@ -15,7 +15,6 @@ var _fs2 = _interopRequireDefault(_fs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
-
   /**
    * Visit a page, look for all images in an IMG tag, download them and save them to a folder
    *

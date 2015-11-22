@@ -1,5 +1,5 @@
 import ProfileCore from './ProfileCore/index.js';
-var CONFIG = require('./config.json');
+const CONFIG = require('./config.json');
 
 // var something = ProfileCore.getScreen('https://www.vegas.com/', 5000, CONFIG.screenshotDirectory, 'vegas1.png');
 // var something = ProfileCore.saveSiteMap(CONFIG.sitemap, CONFIG.workingDirectory, CONFIG.sitemapName);

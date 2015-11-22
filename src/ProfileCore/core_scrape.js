@@ -3,8 +3,6 @@ import Download from 'download';
 import fs from 'fs';
 
 module.exports = {
-
-
   /**
    * Visit a page, look for all images in an IMG tag, download them and save them to a folder
    *
@@ -14,7 +12,7 @@ module.exports = {
    */
 
   downloadImages: function _downloadImages(page, saveLocation) {
-    var xray = new Xray();
+    const xray = new Xray();
 
     // check if saveLocation exists. If not, make it.
     // Using blocking version since the location is needed to proceed
@@ -30,7 +28,7 @@ module.exports = {
         height: '@height'
       }]
     )(function _dlImage(err, results) {
-      var download = new Download();
+      const download = new Download();
       results.filter(function _filterImage(image) {
         return image;
       }).forEach(function _eachImg(image) {

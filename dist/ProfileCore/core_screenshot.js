@@ -1,7 +1,14 @@
 'use strict';
 
-var Nightmare = require('nightmare');
-var vo = require('vo');
+var _nightmare = require('nightmare');
+
+var _nightmare2 = _interopRequireDefault(_nightmare);
+
+var _vo = require('vo');
+
+var _vo2 = _interopRequireDefault(_vo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
 
@@ -18,13 +25,13 @@ module.exports = {
   takeScreenshot: function takeScreenshot(site, wait, screenshotDirectory, screenName) {
     // TODO: If screenshotDirectory doesn't exist, this fails, so I need to create it or send back fail
     // TODO: Clean this up. CB is wrong and no need for eval.
-    vo(regeneratorRuntime.mark(function _callee() {
+    (0, _vo2.default)(regeneratorRuntime.mark(function _callee() {
       var nightmare, link;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              nightmare = Nightmare({ show: true, width: 2000, height: 4444 });
+              nightmare = (0, _nightmare2.default)({ show: true, width: 2000, height: 4444 });
               _context.next = 3;
               return nightmare.goto(site).wait(wait).screenshot(screenshotDirectory + screenName).evaluate(function () {
                 return document.querySelector('.footer-heading').innerText;

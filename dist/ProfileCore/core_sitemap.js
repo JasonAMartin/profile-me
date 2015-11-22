@@ -1,7 +1,14 @@
 'use strict';
 
-var fs = require('fs');
-var Download = require('download');
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _download = require('download');
+
+var _download2 = _interopRequireDefault(_download);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
 
@@ -16,7 +23,7 @@ module.exports = {
 
   saveSiteMap: function _saveSiteMap(site, destination, fileName) {
     return new Promise(function _saveSitemapPromise(resolve) {
-      var download = new Download();
+      var download = new _download2.default();
       download.get(site);
       download.dest(destination);
       download.rename(fileName);
@@ -35,7 +42,7 @@ module.exports = {
 
   getSitemap: function _getSiteMap(site) {
     return new Promise(function _getSitemapPromise(resolve) {
-      var download = new Download();
+      var download = new _download2.default();
       download.get(site);
       download.run(function _runDL(err, data) {
         resolve(data);
@@ -52,7 +59,7 @@ module.exports = {
 
   getWiredURLs: function _getWiredURLs(sitemap) {
     return new Promise(function _getWiredURLsPromise(resolve) {
-      fs.readFile(sitemap, 'utf8', function _readFile(err, data) {
+      _fs2.default.readFile(sitemap, 'utf8', function _readFile(err, data) {
         var index = 0;
         var finalURLSet = [];
         var reg = /<loc>[\s\S]*?<\/loc>/g;
@@ -77,14 +84,14 @@ module.exports = {
 
   getAltURLs: function _getAltURLs(sitemap) {
     return new Promise(function _getAltURLsPromise(resolve) {
-      fs.readFile(sitemap, 'utf8', function _readFile(err, data) {
+      _fs2.default.readFile(sitemap, 'utf8', function _readFile(err, data) {
         var index = 0;
-        var urlReg;
-        var hrefSets;
+        var urlReg = undefined;
+        var hrefSets = undefined;
         var reg = /<url>[\s\S]*?<\/url>/g;
         var urlSets = data.match(reg);
         var len = urlSets.length;
-        var currentItem;
+        var currentItem = undefined;
         var altURLs = [];
         for (index = 0; index < len; index++) {
           currentItem = urlSets[index];

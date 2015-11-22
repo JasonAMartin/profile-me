@@ -1,5 +1,5 @@
-var Nightmare = require('nightmare');
-var vo = require('vo');
+import Nightmare from 'nightmare';
+import vo from 'vo';
 
 module.exports = {
 
